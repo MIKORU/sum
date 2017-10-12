@@ -1,5 +1,7 @@
 Page({
   data: {
+    kind: -1,
+    value: -1,
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
@@ -9,10 +11,10 @@ Page({
     ans:[0,0,0,0],
   },
   /**
-   * 求随机数 max为位数（10，100，10000）
+   * 求随机数 max为范围最大数（10，100，10000）
    */
   range: function(max){
-    return Math.floor(Math.random()*100 % max);
+    return Math.floor(Math.random()*1000 % max);
   },
   printad: function() {
     console.log(this.data.num1 +" "+ this.data.num2);
@@ -44,7 +46,33 @@ Page({
     }
     this.init();
   },
+  /**
+   * 简陋的倒计时
+   */
+  changeTime: function(){
+    var time = this.data.remainingTime;
+
+    if(time === 0){
+      /**
+       * 接答题结束页面
+       */
+      return ;
+    }
+
+    setTimeout(()=>{  
+      this.setData({
+        remainingTime:time-1
+      })
+      this.changeTime();
+    },1000);
+  },
   onLoad: function (options) {
+    this.setData({
+      kind: options.kind,
+      value: options.value
+    })
+    this.init();
+    this.changeTime();
     // Do some initialize when page load.
   },
   onReady: function () {
@@ -52,8 +80,6 @@ Page({
   },
   onShow: function () {
     // Do something when page show.
-    this.init();
-    this.printad();
   },
   onHide: function () {
     // Do something when page hide.

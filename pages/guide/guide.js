@@ -6,7 +6,7 @@ Page({
     kindRange: ['水平等级', '固定时间'],
     gradeRange: ["一级", "二级", "三级", "四级", "五级", "六级", "七级", "八级"],
     typeRange: ["5内加减法", "10内加法", "10内加减法", "20内加法", "20内加减法", "20内减法"],
-    showView:true
+    showView:true,
   },
   kindPickerBindchange: function (e) {
     if(e.detail.value==0){
@@ -33,8 +33,15 @@ Page({
     })
   },
   toast:function(){
+    var value;
+    var kind = this.data.kindValue;
+    if (kind == 0){
+      value = this.data.gradeValue;  
+    }else{
+      value = this.data.typeValue;
+    }
     wx.navigateTo({
-      url:'../do_time/do_time'
+      url:'../do_time/do_time?kind='+kind+'&&value='+value,
     })
   },
   onLoad: function (options) {
