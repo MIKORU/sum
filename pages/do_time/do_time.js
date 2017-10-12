@@ -24,16 +24,14 @@ Page({
   init: function(kind,value){
     var kinds = parseInt(kind);
     var values = parseInt(value);
-    if([0,2,3,6].indexOf(value) != -1 ){
-      var s = range(2);
-      console.log(s);
-      if(s==1){
-        this.cal="+";
-      }else{
-        this.cal="-";
+    if([0,2,3,6].indexOf(values) != -1 ){
+      if(Math.ceil(Math.random())===1){
+        this.setData({
+          cal: "-"
+        });
       }
     }
-    if(value === 7){
+    if(values === 7){
       this.setData({
         cal:"-"
       });
