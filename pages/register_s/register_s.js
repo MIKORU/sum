@@ -125,8 +125,8 @@ Page({
             success: function (res) {
               console.log(res.data.code)
               if(res.data.code==1){
-                wx.redirectTo({
-                  url: '/pages/guide/guide',
+                wx.switchTab({
+                  url: '/pages/logined/logined',
                 })
               }
             }
