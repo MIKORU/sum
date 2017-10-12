@@ -2,37 +2,36 @@
     <view class="header">
         <view class="num">
             <text>做对题数(得分)：</text>
-            <text>5</text>
+            <text>{{score}}</text>
         </view>
         <view class="time">
             <text>剩余时间：</text>
-            <text>10</text>
+            <text>{{remainingTime}}</text>
             <text>s</text>
         </view>
     </view>
     <view class="topic">
-        <text> 4     + </text>
-        <text> 3     = </text>
-        <text>7</text>
+        <text>  {{num1}}  +</text>
+        <text>  {{num2}}  =</text>
     </view>
     <view class="choice">
-        <view class="item">
-            <view class="choose">
+        <view class="item" data-alpha-beta="0" bindtap="touchAns">
+            <view class="choose" >
                 <text>A</text>
             </view>
-            <text style='margin-left:40px;'>7</text>
+            <text class="answer" >{{ans[0]}}</text>
         </view>
-         <view class="item">
-            <view class="choose">B</view>
-            <text style='margin-left:40px;'>8</text>
+         <view class="item" data-alpha-beta="1" bindtap="touchAns">
+            <view class="choose" >B</view>
+            <text class="answer" >{{ans[1]}}</text>
         </view>
-         <view class="item">
-            <view class="choose">C</view>
-            <text style='margin-left:40px;'>9</text>
+         <view class="item" data-alpha-beta="2" bindtap="touchAns">
+            <view class="choose" >C</view>
+            <text class="answer" >{{ans[2]}}</text>
         </view>
-         <view class="item">
-            <view class="choose">D</view>
-            <text style='margin-left:40px;'>10</text>
+         <view class="item" data-alpha-beta="3" bindtap="touchAns">
+            <view class="choose" >D</view>
+            <text class="answer" >{{ans[3]}}</text>
         </view>
     </view>
 </view>

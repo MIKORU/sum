@@ -50,3 +50,6 @@
    border: 1px solid #bab5ba;
    border-radius: 100px;
 }
+.answer{
+  margin-left:40px;
+}

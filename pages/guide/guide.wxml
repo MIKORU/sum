@@ -27,6 +27,6 @@
     </picker>
   </view>
   <view class="start" bindtap="toast">
-  <text>  OK,开始吧！</text>
+  <text>  开始吧！</text>
   </view>
 </view>
