@@ -6,18 +6,18 @@
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">工号 ： </text>
-    <input class="input_1" type='number' bindinput='bindNumberInput'/>
+    <input class="input_1" placeholder="请输入工号" auto-focus/>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">姓名 ： </text>
-    <input class="input_1"  bindinput='bindNameInput'/>
+    <input class="input_1" placeholder="请输入姓名"/>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">性别 ： </text>
-    <picker bindchange="gender_Change" value="{{index}}" class="input_1" range="{{gender}}">
-    <text>{{gender[gender_index]}}</text>
+    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{gender}}">
+    <text>{{gender[index]}}</text>
     <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
@@ -25,19 +25,22 @@
 
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">年龄 ： </text>
-     <picker bindchange="age_Change" value="{{index}}" class="input_1" range="{{age}}">
-    <text>{{age[age_index]}}</text>
+     <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{age}}">
+    <text>{{age[index]}}</text>
     <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">学校 ： </text>
-   <input class="input_1" bindinput='bindSchoolInput'/>
+    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{school}}">
+    <text>{{school[index]}}</text>
+    <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
+    </picker>
   </view>
   <view class='footer'>
   
-  <view class="register" bindtap='register'>
+  <view class="register">
 注册
 </view>
 <view class="cancle">
