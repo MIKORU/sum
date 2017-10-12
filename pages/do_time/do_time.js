@@ -1,7 +1,5 @@
 Page({
   data: {
-    kind: -1,
-    value: -1,
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
@@ -9,6 +7,7 @@ Page({
     num1: 0,
     num2: 0,
     ans:[0,0,0,0],
+    cal: "+"
   },
   /**
    * 求随机数 max为范围最大数（10，100，10000）
@@ -22,7 +21,23 @@ Page({
   /**
    * 初始化相加的数，和选择的数组
    */
-  init: function(){
+  init: function(kind,value){
+    var kinds = parseInt(kind);
+    var values = parseInt(value);
+    if([0,2,3,6].indexOf(value) != -1 ){
+      var s = range(2);
+      console.log(s);
+      if(s==1){
+        this.cal="+";
+      }else{
+        this.cal="-";
+      }
+    }
+    if(value === 7){
+      this.setData({
+        cal:"-"
+      });
+    }
     this.setData({
       num1: this.range(10),
       num2: this.range(10),
@@ -67,11 +82,7 @@ Page({
     },1000);
   },
   onLoad: function (options) {
-    this.setData({
-      kind: options.kind,
-      value: options.value
-    })
-    this.init();
+    this.init(options.kind,options.value);
     this.changeTime();
     // Do some initialize when page load.
   },

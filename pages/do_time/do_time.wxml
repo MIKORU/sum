@@ -11,7 +11,7 @@
         </view>
     </view>
     <view class="topic">
-        <text>  {{num1}}  +</text>
+        <text>  {{num1}}  {{cal}}</text>
         <text>  {{num2}}  =</text>
     </view>
     <view class="choice">
