@@ -31,6 +31,9 @@
   margin-left: 3px;
   color: #bbb;
 }
+.bottom text{
+  margin-left: 10px;
+}
 
 .header {
   display: flex;
