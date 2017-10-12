@@ -85,6 +85,7 @@ Page({
             success: function (res) {
               console.log(res.data.code)
               if (res.data.code == 1) {
+               app.globalData.token = res.data.data
                wx.switchTab({
                  url: '/pages/logined/logined',
                })
