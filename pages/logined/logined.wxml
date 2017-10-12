@@ -1,22 +1,22 @@
 <view class="all">
   <view class="header_1" wx:if="{{condition}}">
     <view class="header_circle_1">
-      <image src="https://wx.qlogo.cn/mmopen/vi_32/ENrmiaVG9HuicAkPFbra5amDU7DvCxr9WUsv6wwXUeicrMOquytaoCKE3tibVwoRKuTs5npk6hpsjO8M4Xpoat1CoA/0" class="header_image"></image>
+      <image src="{{header_image}}" class="header_image"></image>
     </view>
     <view class="right_content">
-      <text>黄小明</text>
+      <text>{{name}}</text>
       <view class="bottom">
-        <image style='width:12px;height:12px;' src='/images/sex.png'></image>
-        <text>四年级1班</text>
-        <text>14251104218</text>
+        <image style='width:12px;height:12px;' src='{{gender==1?boy:girl}}'></image>
+        <text>{{className}}</text>
+        <text>{{number}}</text>
       </view>
     </view>
   </view>
    <view class="header" wx:else>
     <view class="header_circle">
-      <image src="https://wx.qlogo.cn/mmopen/vi_32/ENrmiaVG9HuicAkPFbra5amDU7DvCxr9WUsv6wwXUeicrMOquytaoCKE3tibVwoRKuTs5npk6hpsjO8M4Xpoat1CoA/0" class="header_image"></image>
+      <image src="{{header_image}}" class="header_image"></image>
     </view>
-    <text class="head_font" bindtap='register'>点我登录</text>
+    <text class="head_font" bindtap='register'>点我注册</text>
   </view>
 
   <view class="body_1">

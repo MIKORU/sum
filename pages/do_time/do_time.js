@@ -1,5 +1,8 @@
+const app = getApp();
 Page({
   data: {
+    kind: 0,
+    value: 0,
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
@@ -15,43 +18,87 @@ Page({
   range: function(max){
     return Math.floor(Math.random()*1000 % max);
   },
-  printad: function() {
-    console.log(this.data.num1 +" "+ this.data.num2);
-  },
+  /**
+   * 计算符号选择
+   */
   initcal: function (kinds, values){
-    if ([0, 2, 3, 6].indexOf(values) != -1) {
-      var s = Math.random()*1000%2;
-      console.log(s);
-      if (Math.ceil(s) === 1) {
+    if(kinds === 0){
+      if ([0, 2, 3, 6].indexOf(values) != -1) {
+        var s = Math.random()*1000%2;
+        if (Math.ceil(s) === 1) {
+          this.setData({
+            cal: "-"
+          });
+        } else {
+          this.setData({
+            cal: "+"
+          });
+        }
+      }
+      if (values === 7) {
+        this.setData({
+          cal: "-"
+        });
+      }
+    } else {
+      if ([0, 2, 4].indexOf(values) != -1) {
+        var s = Math.floor(Math.random() * 100 % 2);
+        if (s === 1) {
+          this.setData({
+            cal: "-"
+          });
+        }else{
+          this.setData({
+            cal: "+"
+          });
+        }
+      }
+      if (values === 5) {
         this.setData({
           cal: "-"
         });
       }
     }
-    if (values === 7) {
-      this.setData({
-        cal: "-"
-      });
-    }
   },
   /**
    * 初始化相加的数，和选择的数组
    */
-  init: function(kind,value){
-    var kinds = parseInt(kind);
-    var values = parseInt(value);
+  init: function(){
+    var maxn = 0;
+    var values = this.data.value;
+    var kinds = this.data.kind;
+    if(kinds === 0){
+      if(values === 0){
+        maxn = 5;
+      }else if(values > 0 && values < 4 ){
+        maxn = 10;
+      }else{
+        maxn = 20;
+      }
+    }else{
+      if (values === 0) {
+        maxn = 5;
+      } else if (values > 0 && values < 3) {
+        maxn = 10;
+      } else {
+        maxn = 20;
+      }
+    }
     this.initcal(kinds,values)
     this.setData({
-      num1: this.range(10),
-      num2: this.range(10),
+      num1: this.range(maxn),
+      num2: this.range(maxn),
     });
-    var arr = [this.range(10), this.range(10), this.range(10), this.range(10)];
-    var indexs = this.range(100) % 4;
-    if(this.cal="-"){
-      arr[indexs] = this.data.num1 - this.data.num2;
+   
+    var indexs = this.range(4);
+    var ansNum ;
+    if(this.data.cal === "-"){
+      ansNum = this.data.num1 - this.data.num2;
     }else{
-      arr[indexs] = this.data.num1 + this.data.num2;
+      ansNum = this.data.num1 + this.data.num2;
     }
+    var arr = [ansNum + 1, ansNum - 1, ansNum + 2, ansNum];
+    arr.sort(function (a, b) { return Math.random() > 0.5 ? -1 : 1; });
     this.setData({
       ans: arr
     });
@@ -69,18 +116,77 @@ Page({
     this.init();
   },
   /**
+   * 结果显示
+   */
+  result:function(){
+    if (this.data.kind === 0){
+      if([0,1,2,4].indexOf(this.data.value) != -1){
+        if(this.data.score < 10){
+          return "未过关";
+        }else{
+          return "过关";
+        }
+      }else{
+        if (this.data.score < 15) {
+          return "未过关";
+        } else {
+          return "过关";
+        }
+      }
+    }else{
+      return this.data.score+"分";
+    }
+  },
+  /**
    * 简陋的倒计时
    */
   changeTime: function(){
     var time = this.data.remainingTime;
-
     if(time === 0){
-      /**
-       * 接答题结束页面
-       */
+      wx.request({
+        url:  "",//接口地址
+        data: {
+          token: app.globalData.token,
+          score: this.data.score
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          // wx.showToast({
+          //   title: '您的成绩已保存',
+          //   duration: 5000
+          // })
+        },
+        fail: function(res){
+          console.log(res);
+          // wx.showToast({
+          //   title: '成绩保存失败',
+          //   duration: 5000
+          // })
+        }
+      });
+      wx.showModal({
+        title: '本次结果',
+        content: '时间已经截止 您本次的测试结果为：' + this.result(),
+        showCancel:false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '/pages/guide/guide',
+              success: function(res){
+                console.log(res);
+              },
+              fail: function(res){
+                console.log(res);
+              }
+            });
+          }
+        }
+      })
       return ;
     }
-
     setTimeout(()=>{  
       this.setData({
         remainingTime:time-1
@@ -89,7 +195,11 @@ Page({
     },1000);
   },
   onLoad: function (options) {
-    this.init(options.kind,options.value);
+    this.setData({
+      kind:parseInt(options.kind),
+      value:parseInt(options.value)
+    })
+    this.init();
     this.changeTime();
     // Do some initialize when page load.
   },

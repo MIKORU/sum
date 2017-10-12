@@ -6,59 +6,54 @@
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">学号 ： </text>
-    <input class="input_1" placeholder="sas" auto-focus/>
+    <input class="input_1"  type='number' bindinput='bindNumberInput' auto-focus/>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">姓名 ： </text>
-    <input class="input_1" placeholder="sas" auto-focus/>
+    <input class="input_1" bindinput='bindNameInput'/>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">性别 ： </text>
-    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{gender}}">
-    <text>{{gender[index]}}</text>
+    <picker bindchange="gender_Change" class="input_1" range="{{gender}}">
+      <text>{{gender[gender_index]}}</text>
+      <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="body">
-
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">年龄 ： </text>
-     <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{age}}">
-    <text>{{age[index]}}</text>
+    <picker bindchange="age_Change" class="input_1" range="{{age}}">
+      <text>{{age[age_index]}}</text>
+      <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">学校 ： </text>
-    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{school}}">
-    <text>{{school[index]}}</text>
+    <picker bindchange="school_Change" class="input_1" range="{{school}}">
+      <text>{{school[school_index]}}</text>
+      <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
-    <text style="width:90px">学号 ： </text>
-    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{class}}">
-    <text>{{class[index]}}</text>
-    </picker>
-  </view>
-  <view class="body">
-    <image class="image_1" src="/images/home.png"></image>
-    <text style="width:90px">教师 ： </text>
-     <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{teacher}}">
-    <text>{{teacher[index]}}</text>
+    <text style="width:90px">班级 ： </text>
+    <picker bindchange="class_Change" class="input_1" range="{{classRooms}}">
+      <text>{{classRooms[class_index]}}</text>
+      <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class='footer'>
-  
-  <view class="register">
-注册
-</view>
-<view class="cancle">
+    <view class="register" bindtap='register'>
+      注册
+    </view>
+    <view class="cancle">
 
-取消
-</view>
-  
+      取消
+    </view>
+
   </view>
 
 </view>

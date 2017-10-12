@@ -35,14 +35,17 @@
 
 .input_1 {
   display: flex;
-  justify-content: space-between;
+   position: relative; 
+   
+  /* justify-content: flex-start; */
   margin-top: 20px;
+   padding-left: 10px; 
   border-radius: 10px;
   align-items: center;
-  margin-left: 10%;
+   margin-left: 10%; 
 border: 1px solid #ddd;
   height: 30px;
-  width: 70%;
+  width: 75%;
 }
 .start{
 height: 34px;

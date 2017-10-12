@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     kindValue: 0,
@@ -41,7 +42,7 @@ Page({
       value = this.data.typeValue;
     }
     wx.navigateTo({
-      url:'../do_time/do_time?kind='+kind+'&&value='+value,
+      url:'/pages/do_time/do_time?kind='+kind+'&&value='+value,
     })
   },
   onLoad: function (options) {
@@ -53,6 +54,12 @@ Page({
   },
   onShow: function () {
     // Do something when page show.
+    console.log(100)
+    // Do something when page show.
+    if (app.globalData.canuse == 0) {
+      console.log(2)
+      app.getUserInfo(app);
+    }
   },
   onHide: function () {
     // Do something when page hide.
