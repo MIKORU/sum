@@ -1,9 +1,11 @@
 Page({
   data: {
+    kind: 0,
+    value: 0,
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime: 60,
+    remainingTime: 10,
     num1: 0,
     num2: 0,
     ans:[0,0,0,0],
@@ -18,36 +20,80 @@ Page({
   printad: function() {
     console.log(this.data.num1 +" "+ this.data.num2);
   },
+  /**
+   * 计算符号选择
+   */
   initcal: function (kinds, values){
-    if ([0, 2, 3, 6].indexOf(values) != -1) {
-      var s = Math.random()*1000%2;
-      console.log(s);
-      if (Math.ceil(s) === 1) {
+    if(kinds === 0){
+      if ([0, 2, 3, 6].indexOf(values) != -1) {
+        var s = Math.random()*1000%2;
+        if (Math.ceil(s) === 1) {
+          this.setData({
+            cal: "-"
+          });
+        } else {
+          this.setData({
+            cal: "+"
+          });
+        }
+      }
+      if (values === 7) {
+        this.setData({
+          cal: "-"
+        });
+      }
+    } else {
+      if ([0, 2, 4].indexOf(values) != -1) {
+        var s = Math.floor(Math.random() * 100 % 2);
+        if (s === 1) {
+          this.setData({
+            cal: "-"
+          });
+        }else{
+          this.setData({
+            cal: "+"
+          });
+        }
+      }
+      if (values === 5) {
         this.setData({
           cal: "-"
         });
       }
     }
-    if (values === 7) {
-      this.setData({
-        cal: "-"
-      });
-    }
   },
   /**
    * 初始化相加的数，和选择的数组
    */
-  init: function(kind,value){
-    var kinds = parseInt(kind);
-    var values = parseInt(value);
+  init: function(){
+    var maxn = 0;
+    var values = this.data.value;
+    var kinds = this.data.kind;
+    if(kinds === 0){
+      if(values === 0){
+        maxn = 5;
+      }else if(values > 0 && values < 4 ){
+        maxn = 10;
+      }else{
+        maxn = 20;
+      }
+    }else{
+      if (values === 0) {
+        maxn = 5;
+      } else if (values > 0 && values < 3) {
+        maxn = 10;
+      } else {
+        maxn = 20;
+      }
+    }
     this.initcal(kinds,values)
     this.setData({
-      num1: this.range(10),
-      num2: this.range(10),
+      num1: this.range(maxn),
+      num2: this.range(maxn),
     });
-    var arr = [this.range(10), this.range(10), this.range(10), this.range(10)];
-    var indexs = this.range(100) % 4;
-    if(this.cal="-"){
+    var arr = [this.range(maxn), this.range(maxn), this.range(maxn), this.range(maxn)];
+    var indexs = this.range(4);
+    if(this.data.cal === "-"){
       arr[indexs] = this.data.num1 - this.data.num2;
     }else{
       arr[indexs] = this.data.num1 + this.data.num2;
@@ -75,12 +121,21 @@ Page({
     var time = this.data.remainingTime;
 
     if(time === 0){
-      /**
-       * 接答题结束页面
-       */
+      wx.showModal({
+        title: '本次结果',
+        content: '时间已经截至，您本次的测试结果为：',
+        showCancel:false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.redirectTo({
+              url: '../logined/logined',
+            })
+          }
+        }
+      })
       return ;
     }
-
     setTimeout(()=>{  
       this.setData({
         remainingTime:time-1
@@ -89,7 +144,11 @@ Page({
     },1000);
   },
   onLoad: function (options) {
-    this.init(options.kind,options.value);
+    this.setData({
+      kind:parseInt(options.kind),
+      value:parseInt(options.value)
+    })
+    this.init();
     this.changeTime();
     // Do some initialize when page load.
   },
