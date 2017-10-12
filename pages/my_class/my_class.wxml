@@ -1,0 +1,12 @@
+<view>
+    <view class="header">
+        <image style='width:25px;height:25px;' src='/images/home.png'></image>
+        <text style='margin-left:10px;'>已有班级</text>
+    </view>
+
+<view class="topic">
+    <text >四年级1班</text>
+    <text class="topic_1">查看 ></text>
+</view>
+
+</view>

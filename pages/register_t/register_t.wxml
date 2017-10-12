@@ -1,0 +1,50 @@
+<view>
+  <view class='header'>
+    <text style="margin-top:40px;">教师注册</text>
+    <image src='/images/cat.png' class="header_image"></image>
+  </view>
+  <view class="body">
+    <image class="image_1" src="/images/home.png"></image>
+    <text style="width:90px">工号 ： </text>
+    <input class="input_1" placeholder="sas" auto-focus/>
+  </view>
+  <view class="body">
+    <image class="image_1" src="/images/home.png"></image>
+    <text style="width:90px">姓名 ： </text>
+    <input class="input_1" placeholder="sas" auto-focus/>
+  </view>
+  <view class="body">
+    <image class="image_1" src="/images/home.png"></image>
+    <text style="width:90px">性别 ： </text>
+    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{gender}}">
+    <text>{{gender[index]}}</text>
+    </picker>
+  </view>
+  <view class="body">
+
+    <image class="image_1" src="/images/home.png"></image>
+    <text style="width:90px">年龄 ： </text>
+     <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{age}}">
+    <text>{{age[index]}}</text>
+    </picker>
+  </view>
+  <view class="body">
+    <image class="image_1" src="/images/home.png"></image>
+    <text style="width:90px">学校 ： </text>
+    <picker bindchange="bindPickerChange" value="{{index}}" class="input_1" range="{{school}}">
+    <text>{{school[index]}}</text>
+    </picker>
+  </view>
+  <view class='footer'>
+  
+  <view class="register">
+注册
+</view>
+<view class="cancle">
+
+取消
+</view>
+  
+  </view>
+
+</view>

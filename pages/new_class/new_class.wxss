@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_image {
+  width: 101px;
+  height: 93px;
+  margin-top: 10px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+    color: #101010;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #101010;
+  font-size: 14px;
+  margin: 0 auto;
+  height: 40px;
+  border: 1px solid #afded8;
+  margin-top: 30px;
+  width: 140px;
+  border-radius: 60px;
+}

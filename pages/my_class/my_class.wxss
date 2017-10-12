@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  height: 80px;
+    font-size: 16px;
+  color: #030303;
+  justify-content: flex-start;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.topic {
+  font-size: 14px;
+  color: #030303;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  margin-left: 15px;
+  height: 40px;
+  border-bottom: 1px solid #bbb;
+}
+
+.topic_1{
+   margin-left: 65%; 
+   color: #aaaaaa;
+}

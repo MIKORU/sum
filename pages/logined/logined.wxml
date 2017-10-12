@@ -1,0 +1,110 @@
+<view class="all">
+  <view class="header_1" wx:if="{{condition}}">
+    <view class="header_circle_1">
+      <image src="https://wx.qlogo.cn/mmopen/vi_32/ENrmiaVG9HuicAkPFbra5amDU7DvCxr9WUsv6wwXUeicrMOquytaoCKE3tibVwoRKuTs5npk6hpsjO8M4Xpoat1CoA/0" class="header_image"></image>
+    </view>
+    <view class="right_content">
+      <text>黄小明</text>
+      <view class="bottom">
+        <image style='width:12px;height:12px;' src='/images/sex.png'></image>
+        <text>四年级1班</text>
+        <text>14251104218</text>
+      </view>
+    </view>
+  </view>
+   <view class="header" wx:else>
+    <view class="header_circle">
+      <image src="https://wx.qlogo.cn/mmopen/vi_32/ENrmiaVG9HuicAkPFbra5amDU7DvCxr9WUsv6wwXUeicrMOquytaoCKE3tibVwoRKuTs5npk6hpsjO8M4Xpoat1CoA/0" class="header_image"></image>
+    </view>
+    <text class="head_font" bindtap='register'>点我登录</text>
+  </view>
+
+  <view class="body_1">
+    <view class="class_p">
+      <view class="class_p_circle">
+        <image class="class_p_circle_image" src="/images/love.png"></image>
+      </view>
+      <text>班级排名</text>
+    </view>
+    <view class="my_error">
+      <view class="my_error_circle">
+        <image class="my_error_circle_image" src='/images/error.png'></image>
+      </view>
+      <text>我的错题</text>
+    </view>
+    <view class="pai_hang">
+      <view class="pai_hang_circle">
+        <image class="pai_hang_circle_image" src='/images/p1.png'></image>
+      </view>
+      <text>排行版</text>
+    </view>
+
+
+
+  </view>
+  <view class="white_space">
+  </view>
+
+  <view class="body_2">
+    <view class="my_homework" bindtap='a'>
+      <view class='my_homework_image'>
+        <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
+      </view>
+      <view class="my_homework_image_item">
+        <view class="text_">
+          <text>我的作业</text>
+          <text style="margin-right:15px;">></text>
+        </view>
+      </view>
+    </view>
+    <view class="do_history" bindtap='b'>
+      <view class="do_history_image">
+        <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
+      </view>
+      <view class="do_history_image_item">
+        <view class="text_">
+          <text>做题历史</text>
+          <text style="margin-right:15px;">></text>
+        </view>
+      </view>
+
+    </view>
+    <view class="myself" bindtap='c'>
+      <view class="myself_image">
+        <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
+      </view>
+      <view class="myself_image_item">
+        <view class="text_">
+          <text>个人信息</text>
+          <text style="margin-right:15px;">></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="white_space">
+  </view>
+  <view class="body_3">
+    <view class="about_us" bindtap='d'>
+      <view class="about_us_image">
+        <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
+      </view>
+      <view class="about_us_image_item">
+        <view class="text_">
+          <text>关于我们</text>
+          <text style="margin-right:15px;">></text>
+        </view>
+      </view>
+    </view>
+    <view class="contact_us" bindtap='e'>
+      <view class="contact_us_image">
+        <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
+      </view>
+      <view class="contact_us_image_item">
+        <view class="text_">
+          <text>联系我们</text>
+          <text style="margin-right:15px;">></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

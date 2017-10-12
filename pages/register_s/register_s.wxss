@@ -1,0 +1,58 @@
+.header{
+display: flex;
+justify-content: space-around;
+align-items: center;
+height: 180px;
+font-size: 28px;
+}
+.header_image{
+  width: 101px;
+  height: 93px; 
+   margin-top: 10px;
+}
+.body{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 45px;
+  font-size: 16px;
+  color: #101010;
+}
+.image_1{
+  height: 30px;
+  width: 30px;
+  margin:0px 15px;
+}
+.input_1{
+  display: flex;
+   justify-content: space-between; 
+   align-items: center; 
+  border: 1px solid #ddd;
+    height: 30px;
+  width: 100%;
+  margin-right: 5px;
+}
+.register{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 81px;
+  height: 27px;
+  border-radius: 70px;
+  border: 1px solid red;
+}
+.cancle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 81px;
+  height: 27px;
+  border-radius: 70px;
+  border: 1px solid red;
+}
+.footer{
+  display:flex;
+  height: 70px;
+  justify-content: space-around;
+  align-items: center;
+}

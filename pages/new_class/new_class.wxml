@@ -1,0 +1,12 @@
+<view>
+    <view class="header">
+        <image src='/images/cat.png' class="header_image"></image>
+    </view>
+    <view class="body">
+        <text>您还没有班级哦！点击创建班级！</text>
+    </view>
+    <view class="footer">
+      创建新班级
+    </view>
+
+</view>

@@ -1,0 +1,35 @@
+<view>
+  <view class='type'>
+    <label class="font_t">时间：</label>
+    <picker bindchange="timePickerBindchange1" value="{{timeValue1}}" class="input_1" mode="date" start="1999-01-01" end="2022-12-12">
+      <text>{{timeValue1}}</text>
+    </picker>
+    <label>-</label>
+    <picker bindchange="timePickerBindchange2" value="{{timeValue2}}" class="input_1" mode="date" start="1999-01-01" end="2022-12-12">
+      <text>{{timeValue2}}</text>
+    </picker>
+  </view>
+  <view class='type'>
+    <label>学号：</label>
+    <input name="no" class="input_t"/>
+  </view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">姓名</view>
+      <view class="th">学号</view>
+      <view class="th ">成绩</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{code}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td">{{item.name}}</view>
+        <view class="td">{{item.no}}</view>
+        <view class="td">{{item.grade}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td">{{item.name}}</view>
+        <view class="td">{{item.no}}</view>
+        <view class="td">{{item.grade}}</view>
+      </view>
+    </block>
+  </view>
+</view>

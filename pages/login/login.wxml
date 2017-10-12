@@ -1,0 +1,11 @@
+<!-- 顶层view标签 -->
+<view>
+
+<view>
+<button type='primary' bindtap='login' data-id='1'>教师点我登录</button>
+  <button type='primary' bindtap='login' data-id='2'>学生点我登录</button>
+</view>
+
+
+
+</view>

@@ -1,0 +1,38 @@
+<view>
+    <view class="header">
+        <view class="num">
+            <text>做对题数(得分)：</text>
+            <text>5</text>
+        </view>
+        <view class="time">
+            <text>剩余时间：</text>
+            <text>10</text>
+            <text>s</text>
+        </view>
+    </view>
+    <view class="topic">
+        <text> 4     + </text>
+        <text> 3     = </text>
+        <text>7</text>
+    </view>
+    <view class="choice">
+        <view class="item">
+            <view class="choose">
+                <text>A</text>
+            </view>
+            <text style='margin-left:40px;'>7</text>
+        </view>
+         <view class="item">
+            <view class="choose">B</view>
+            <text style='margin-left:40px;'>8</text>
+        </view>
+         <view class="item">
+            <view class="choose">C</view>
+            <text style='margin-left:40px;'>9</text>
+        </view>
+         <view class="item">
+            <view class="choose">D</view>
+            <text style='margin-left:40px;'>10</text>
+        </view>
+    </view>
+</view>

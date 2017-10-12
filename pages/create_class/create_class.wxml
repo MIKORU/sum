@@ -1,0 +1,4 @@
+<view >
+    <input class="header" placeholder="请输入班级名称" auto-focus/>
+    <view class="footer">保存</view>
+</view>

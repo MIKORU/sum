@@ -1,0 +1,32 @@
+<view>
+
+  <view class='header'>
+    <text>一、数学我为王，谁能敌我、MMP！</text>
+  </view>
+  <view class='body_1'>
+    <text>
+    两种测试方式，一种是按照水平等级；一种是固定时间做对多少题。做对1道加1分，做错一道扣1分，超过或等于10分，过关。
+    </text>
+  </view>
+  <view class='type'>
+    <text>1、请选择测试类型：</text>
+    <picker bindchange="kindPickerBindchange" value="{{kindValue}}" class="input_1" range="{{kindRange}}">
+      <text>{{kindRange[kindValue]}}</text>
+    </picker>
+  </view>
+  <view class="type {{showView?'text_show':'text_hide'}}">
+    <text>2、请选择测试等级：</text>
+    <picker bindchange="gradePickerBindchange" value="{{gradeValue}}" class="input_1" range="{{gradeRange}}">
+      <text>{{gradeRange[gradeValue]}}</text>
+    </picker>
+  </view>
+  <view  class="type {{showView?'text_hide':'text_show'}}">
+    <text>2、请选择测试题目类型：</text>
+    <picker bindchange="typePickerBindchange" value="{{typeValue}}" class="input_1" range="{{typeRange}}">
+      <text>{{typeRange[typeValue]}}</text>
+    </picker>
+  </view>
+  <view class="start" bindtap="toast">
+  <text>  OK,开始吧！</text>
+  </view>
+</view>
