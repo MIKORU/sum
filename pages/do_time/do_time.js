@@ -5,7 +5,7 @@ Page({
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime: 10,
+    remainingTime: 60,
     num1: 0,
     num2: 0,
     ans:[0,0,0,0],
@@ -16,9 +16,6 @@ Page({
    */
   range: function(max){
     return Math.floor(Math.random()*1000 % max);
-  },
-  printad: function() {
-    console.log(this.data.num1 +" "+ this.data.num2);
   },
   /**
    * 计算符号选择
@@ -91,13 +88,16 @@ Page({
       num1: this.range(maxn),
       num2: this.range(maxn),
     });
-    var arr = [this.range(maxn), this.range(maxn), this.range(maxn), this.range(maxn)];
+   
     var indexs = this.range(4);
+    var ansNum ;
     if(this.data.cal === "-"){
-      arr[indexs] = this.data.num1 - this.data.num2;
+      ansNum = this.data.num1 - this.data.num2;
     }else{
-      arr[indexs] = this.data.num1 + this.data.num2;
+      ansNum = this.data.num1 + this.data.num2;
     }
+    var arr = [ansNum + 1, ansNum - 1, ansNum + 2, ansNum];
+    arr.sort(function (a, b) { return Math.random() > 0.5 ? -1 : 1; });
     this.setData({
       ans: arr
     });
@@ -115,22 +115,48 @@ Page({
     this.init();
   },
   /**
+   * 结果显示
+   */
+  result:function(){
+    if (this.data.kind === 0){
+      if([0,1,2,4].indexOf(this.data.value) != -1){
+        if(this.data.score < 10){
+          return "未过关";
+        }else{
+          return "过关";
+        }
+      }else{
+        if (this.data.score < 15) {
+          return "未过关";
+        } else {
+          return "过关";
+        }
+      }
+    }else{
+      return this.data.score+"分";
+    }
+  },
+  /**
    * 简陋的倒计时
    */
   changeTime: function(){
     var time = this.data.remainingTime;
-
     if(time === 0){
       wx.showModal({
         title: '本次结果',
-        content: '时间已经截至，您本次的测试结果为：',
+        content: '时间已经截止 您本次的测试结果为：' + this.result(),
         showCancel:false,
         success: function (res) {
           if (res.confirm) {
-            console.log('用户点击确定')
-            wx.redirectTo({
-              url: '../logined/logined',
-            })
+            wx.switchTab({
+              url: '/pages/guide/guide',
+              success: function(res){
+                console.log(res);
+              },
+              fail: function(res){
+                console.log(res);
+              }
+            });
           }
         }
       })
