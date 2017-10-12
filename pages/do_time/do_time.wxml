@@ -11,8 +11,10 @@
         </view>
     </view>
     <view class="topic">
-        <text>  {{num1}}  {{cal}}</text>
-        <text>  {{num2}}  =</text>
+        <text>  {{num1}}</text>
+        <text> {{cal}}</text>
+        <text>  {{num2}} </text>
+        <text>=</text>
     </view>
     <view class="choice">
         <view class="item" data-alpha-beta="0" bindtap="touchAns">

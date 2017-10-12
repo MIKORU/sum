@@ -1,12 +1,24 @@
 const app = getApp();
 Page({
   data: {
-    condition:false
+    condition: false,//是否登录
+    header_image: "/images/cat.png",//用户头像
+    name: "",//姓名
+    gender:0,
+    boy:"/images/male.png",
+    girl: "/images/female.png",
+    className: "",
+    number: ""
   },
-  a:function(){
-  wx.navigateTo({
-    url: '/pages/do_time/do_time',
-  })
+  register:(e)=>{
+    wx.navigateTo({
+      url: '/pages/register_guide/register_guide',
+    })
+  },
+  a: function () {
+    wx.navigateTo({
+      url: '/pages/do_time/do_time',
+    })
   },
   c: function () {
     wx.navigateTo({
@@ -25,50 +37,76 @@ Page({
   },
   e: function () {
     wx.navigateTo({
-      url: '/pages/table/table',
+      url: '/pages/my_class/my_class',
     })
   },
   onLoad: function (options) {
-    
 
-    // Do some initialize when page load.
+
   },
   onReady: function () {
-    // Do something when page ready.
+
   },
   onShow: function () {
+    const that = this
+    console.log(app.globalData.canuse)
+    //没有授权就逼到你授权为止
     if (app.globalData.canuse == 0) {
-      app.getUserInfo();
+      console.log(2)
+      app.getUserInfo(app);
+    } else if (this.data.condition == false) {//未登录,先检查下之前是否注册过
+      console.log(3)
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求，向自己的服务器获取session
+            wx.request({
+              url: 'http://localhost:7000/wxapp/login/checkLogined.do',
+              data: {
+                code: res.code,
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded' //post请求
+              },
+              method: "POST",
+              dataType: "json",
+              success: function (res) {
+                console.log(res.data)
+                if (res.data.code == 1) {//之前登陆过
+                  console.log(res.data.data)
+                  var userInfo = res.data.data
+                  console.log("as" + userInfo)
+                  that.setData({
+                    condition: true,
+                    header_image: userInfo.image ,
+                    name: userInfo.name,
+                    className: userInfo.className,
+                    number: userInfo.number
+                  })
+                }
+              }
+            })
+          }
+        }
+      });
     }
-    // Do something when page show.
   },
   onHide: function () {
-    // Do something when page hide.
+
   },
   onUnload: function () {
-    // Do something when page close.
+
   },
   onPullDownRefresh: function () {
-    // Do something when pull down.
+
   },
   onReachBottom: function () {
     // Do something when page reach bottom.
   },
   onShareAppMessage: function () {
-    // return custom share data when user share.
+
   },
   onPageScroll: function () {
-    // Do something when page scroll
-  },
-  // Event handler.
-  viewTap: function () {
-    this.setData({
-      text: 'Set some data for updating view.'
-    }, function () {
-      // this is setData callback
-    })
-  },
-  customData: {
-    hi: 'MINA'
+
   }
 })

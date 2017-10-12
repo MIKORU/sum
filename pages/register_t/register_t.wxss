@@ -19,18 +19,21 @@ font-size: 28px;
   color: #101010;
 }
 .image_1{
-  height: 30px;
+  height: 25px;
   width: 30px;
-  margin:0px 15px;
+   margin:0px 15px; 
 }
 .input_1{
-  display: flex;
+   display: flex;
+    position: relative;  
    justify-content: space-between; 
-   align-items: center; 
-  border: 1px solid #ddd;
-    height: 30px;
+   padding-left: 6px; 
+  border-radius: 10px;
+  align-items: center;
+  margin-right: 10px; 
+border: 1px solid #ddd;
+  height: 30px;
   width: 100%;
-  margin-right: 5px;
 }
 .register{
     display: flex;

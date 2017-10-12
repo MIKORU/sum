@@ -12,18 +12,21 @@
     <text>1、请选择测试类型：</text>
     <picker bindchange="kindPickerBindchange" value="{{kindValue}}" class="input_1" range="{{kindRange}}">
       <text>{{kindRange[kindValue]}}</text>
+       <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="type {{showView?'text_show':'text_hide'}}">
     <text>2、请选择测试等级：</text>
     <picker bindchange="gradePickerBindchange" value="{{gradeValue}}" class="input_1" range="{{gradeRange}}">
       <text>{{gradeRange[gradeValue]}}</text>
+       <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view  class="type {{showView?'text_hide':'text_show'}}">
     <text>2、请选择测试题目类型：</text>
     <picker bindchange="typePickerBindchange" value="{{typeValue}}" class="input_1" range="{{typeRange}}">
       <text>{{typeRange[typeValue]}}</text>
+       <image style='position:absolute;width:12px;height:12px;right:6px;top:25%' src='/images/retangle.png'></image>
     </picker>
   </view>
   <view class="start" bindtap="toast">

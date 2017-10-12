@@ -1,16 +1,18 @@
-.header{
-display: flex;
-justify-content: space-around;
-align-items: center;
-height: 180px;
-font-size: 28px;
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 180px;
+  font-size: 28px;
 }
-.header_image{
+
+.header_image {
   width: 101px;
-  height: 93px; 
-   margin-top: 10px;
+  height: 93px;
+  margin-top: 10px;
 }
-.body{
+
+.body {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -18,22 +20,28 @@ font-size: 28px;
   font-size: 16px;
   color: #101010;
 }
-.image_1{
-  height: 30px;
+
+.image_1 {
+  height: 25px;
   width: 30px;
-  margin:0px 15px;
+  margin: 0px 15px;
 }
-.input_1{
-  display: flex;
+
+.input_1 {
+   display: flex;
+    position: relative;  
    justify-content: space-between; 
-   align-items: center; 
-  border: 1px solid #ddd;
-    height: 30px;
+   padding-left: 6px; 
+  border-radius: 10px;
+  align-items: center;
+  margin-right: 10px; 
+border: 1px solid #ddd;
+  height: 30px;
   width: 100%;
-  margin-right: 5px;
 }
-.register{
-    display: flex;
+
+.register {
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 81px;
@@ -41,7 +49,8 @@ font-size: 28px;
   border-radius: 70px;
   border: 1px solid red;
 }
-.cancle{
+
+.cancle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,8 +59,9 @@ font-size: 28px;
   border-radius: 70px;
   border: 1px solid red;
 }
-.footer{
-  display:flex;
+
+.footer {
+  display: flex;
   height: 70px;
   justify-content: space-around;
   align-items: center;
