@@ -18,31 +18,40 @@ Page({
   printad: function() {
     console.log(this.data.num1 +" "+ this.data.num2);
   },
+  initcal: function (kinds, values){
+    if ([0, 2, 3, 6].indexOf(values) != -1) {
+      var s = Math.random()*1000%2;
+      console.log(s);
+      if (Math.ceil(s) === 1) {
+        this.setData({
+          cal: "-"
+        });
+      }
+    }
+    if (values === 7) {
+      this.setData({
+        cal: "-"
+      });
+    }
+  },
   /**
    * 初始化相加的数，和选择的数组
    */
   init: function(kind,value){
     var kinds = parseInt(kind);
     var values = parseInt(value);
-    if([0,2,3,6].indexOf(values) != -1 ){
-      if(Math.ceil(Math.random())===1){
-        this.setData({
-          cal: "-"
-        });
-      }
-    }
-    if(values === 7){
-      this.setData({
-        cal:"-"
-      });
-    }
+    this.initcal(kinds,values)
     this.setData({
       num1: this.range(10),
       num2: this.range(10),
     });
     var arr = [this.range(10), this.range(10), this.range(10), this.range(10)];
     var indexs = this.range(100) % 4;
-    arr[indexs] = this.data.num1 + this.data.num2;
+    if(this.cal="-"){
+      arr[indexs] = this.data.num1 - this.data.num2;
+    }else{
+      arr[indexs] = this.data.num1 + this.data.num2;
+    }
     this.setData({
       ans: arr
     });
