@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     kind: 0,
@@ -142,6 +143,30 @@ Page({
   changeTime: function(){
     var time = this.data.remainingTime;
     if(time === 0){
+      wx.request({
+        url:  "",//接口地址
+        data: {
+          token: app.globalData.token,
+          score: this.data.score
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          // wx.showToast({
+          //   title: '您的成绩已保存',
+          //   duration: 5000
+          // })
+        },
+        fail: function(res){
+          console.log(res);
+          // wx.showToast({
+          //   title: '成绩保存失败',
+          //   duration: 5000
+          // })
+        }
+      });
       wx.showModal({
         title: '本次结果',
         content: '时间已经截止 您本次的测试结果为：' + this.result(),
