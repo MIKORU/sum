@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/logined/logined",
     "pages/guide/guide",
     "pages/register_t/register_t",
     
-    "pages/logined/logined",
+    
     "pages/do_time/do_time",
     
     "pages/register_guide/register_guide",
@@ -15,7 +16,8 @@
     
     "pages/login/login",
     "pages/logs/logs",
-    "pages/table/table"
+    "pages/table/table",
+    "pages/person_msg/person_msg"
   ],
   "window":{
     "backgroundTextStyle":"light",

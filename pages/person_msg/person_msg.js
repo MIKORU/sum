@@ -1,47 +1,25 @@
 const app = getApp();
 Page({
   data: {
+    index:0,
     condition: false,//是否登录
     header_image: "/images/cat.png",//用户头像
     name: "",//姓名
-    gender:0,
-    boy:"/images/male.png",
+    gender: "",
+    boy: "/images/male.png",
     girl: "/images/female.png",
     className: "",
-    number: ""
+    number: "",
+    age: "",
+    school: ""
   },
-  register:(e)=>{
+  register: (e) => {
     wx.navigateTo({
-      url: '/pages/register_guide/register_guide',
+      url: '/pages/login/login',
     })
   },
-  a: function () {
-    wx.navigateTo({
-      url: '/pages/do_time/do_time',
-    })
-  },
-  c: function () {
-    wx.navigateTo({
-      url: '/pages/person_msg/person_msg',
-    })
-  },
-  b: function () {
-    wx.navigateTo({
-      url: '/pages/register_s/register_s',
-    })
-  },
-  d: function () {
-    wx.navigateTo({
-      url: '/pages/register_t/register_t',
-    })
-  },
-  e: function () {
-    wx.navigateTo({
-      url: '/pages/table/table',
-    })
-  },
-  onLoad: function (options) {
 
+  onLoad: function (options) {
 
   },
   onReady: function () {
@@ -78,11 +56,13 @@ Page({
                   console.log("as" + userInfo)
                   that.setData({
                     condition: true,
-                    header_image: userInfo.image ,
+                    header_image: userInfo.image,
                     name: userInfo.name,
                     className: userInfo.className,
                     number: userInfo.number,
-                    gender:userInfo.sex
+                    gender: userInfo.sex,
+                    age:userInfo.age,
+                    school:userInfo.school
                   })
                   app.globalData.token = res.data.data.token
                 }
