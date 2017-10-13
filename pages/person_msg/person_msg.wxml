@@ -1,0 +1,73 @@
+<view class="all">
+  <view class="header_1" wx:if="{{condition}}">
+    <view class="header_circle_1">
+      <image src="{{header_image}}" class="header_image"></image>
+    </view>
+    <view class="right_content">
+      <text>{{name}}</text>
+      <view class="bottom">
+        <image style='width:12px;height:12px;' src='{{gender==1?boy:girl}}'></image>
+        <text>{{className}}</text>
+        <text>{{number}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="header" wx:else>
+    <view class="header_circle">
+      <image src="{{header_image}}" class="header_image"></image>
+    </view>
+    <text class="head_font" bindtap='register'>点我登录</text>
+  </view>
+
+
+</view>
+<view class="white_space">
+</view>
+
+<view class="text_">
+  <text>姓名</text>
+  <view class="text_t">
+    <text>{{name}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
+
+<view class="text_">
+  <text>学校名称</text>
+  <view class="text_t">
+    <text>{{school}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
+
+<view class="text_">
+  <text>班级</text>
+  <view class="text_t">
+    <text>{{className}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
+
+<view class="text_">
+  <text>学号</text>
+  <view class="text_t">
+    <text>{{number}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
+
+<view class="text_">
+  <text>性别</text>
+  <view class="text_t">
+    <text>{{gender}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
+
+<view class="text_">
+  <text>年龄</text>
+  <view class="text_t">
+    <text>{{age}}</text>
+  </view>
+  <text style="margin-right:15px;">></text>
+</view>
