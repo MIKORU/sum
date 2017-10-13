@@ -9,7 +9,7 @@
 	"compileType": "weapp",
 	"libVersion": "1.5.4",
 	"appid": "touristappid",
-	"projectname": "sum2",
+	"projectname": "sum",
 	"condition": {
 		"weapp": {
 			"current": -1,
