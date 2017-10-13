@@ -11,7 +11,7 @@ App({
          */
         console.log(res.authSetting['scope.userInfo'])
         /**
-         * 如果用户还没有授权，这里都会进去
+         * 如果用户还没有授权，这里都会进去 
          */
         if (!res.authSetting['scope.userInfo']) {
           wx.authorize({
