@@ -6,11 +6,12 @@ Page({
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime:5,
+    remainingTime:60,
     num1: 0,
     num2: 0,
     ans:[0,0,0,0],
-    cal: "+"
+    cal: "+",
+    flag: 1
   },
   /**
    * 求随机数 max为范围最大数（10，100，10000）
@@ -107,10 +108,16 @@ Page({
    * 计算得分
    */
   touchAns: function(event){
-    var index = event.currentTarget.dataset.alphaBeta;
-    if (this.data.num1 + this.data.num2 === this.data.ans[index]){
+    var index = parseInt(event.currentTarget.dataset.alphaBeta);
+    var ans1;
+    if(this.data.cal === "-"){
+      ans1 = this.data.num1 - this.data.num2;
+    }else{
+      ans1 = this.data.num1 + this.data.num2;
+    }
+    if (ans1 === this.data.ans[index]){
       this.setData({
-        score : this.data.score+1,
+        score: this.data.score + 1,
       })
     }
     this.init();
@@ -142,7 +149,7 @@ Page({
    */
   changeTime: function(){
     var time = this.data.remainingTime;
-    if(time < 0){
+    if(this.data.flag === 0){
       return ;
     }
     if(time === 0){
@@ -197,8 +204,13 @@ Page({
       this.changeTime();
     },1000);
   },
+  shutdown:function(){
+    this.setData({
+      flag: 0,
+    });
+  },
   onLoad: function (options) {
-    // console.log(onload);
+    console.log("onload");
     this.setData({
       kind:parseInt(options.kind),
       value:parseInt(options.value)
@@ -224,22 +236,25 @@ Page({
   },
   onUnload: function () {
     // Do something when page close.
-    wx.showModal({
-      title: '提醒',
-      content: '本次答题还未结束，您确定要退出吗？',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          this.setData({
-            remainingTime: -1,
-          });
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+    // wx.showModal({
+    //   title: '提醒',
+    //   content: '本次答题还未结束，您确定要退出吗？',
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //       this.setData({
+    //         remainingTime: -1,
+    //       });
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
 
-    
+    if (this.data.remainingTime > 0){
+      console.log(this.data.remainingTime);
+      this.shutdown();
+    }
     console.log("unload");
   },
   onPullDownRefresh: function () {
