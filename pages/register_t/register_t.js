@@ -60,7 +60,7 @@ Page({
         success: function (res) {
           var code = res.code
           wx.request({
-            url: 'http://localhost:7000/wxapp/user/register.do',
+            url: app.globalData.host +'/wxapp/user/register.do',
             data: {
               number: that.data.teacher.number,
               name: that.data.teacher.name,
