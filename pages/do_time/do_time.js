@@ -157,6 +157,7 @@ Page({
       header: {
         'content-type': 'application/json'
       },
+      method:"POST",
       success: function (res) {
         console.log(res)
         // wx.showToast({

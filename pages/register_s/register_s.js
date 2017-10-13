@@ -71,6 +71,9 @@ Page({
           classRooms: res.data.data.nameList,
           cidList: res.data.data.idList
         })
+        if (res.data.data.idList.length !=0){
+          that.data.student.cid = res.data.data.idList[0]
+        }
       }
     })
   },
@@ -115,6 +118,7 @@ Page({
               language: app.globalData.userInfo.language,
               province: app.globalData.userInfo.province,
               code:code,
+              schoolName:"",
               type: 2
             },
             header: {
