@@ -64,7 +64,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    canuse:0,//没有授权
-    token:""
+    canuse:0//没有授权
   }
 })
