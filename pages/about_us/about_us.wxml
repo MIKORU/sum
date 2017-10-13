@@ -6,11 +6,10 @@
   </view>
   <view class="foot">
     <text>—————    版本号    —————</text>
-    <text>{{version}}</text>
-    <text>—————    微信公众号    —————</text>
-    <text>{{wx}}</text>
-    <text>—————    联系我们    —————</text>
-    <text>{{contact}}</text>
-    <text>—————    tx    —————</text>
+    <text class="content">{{version}}</text>
+    <text>————    微信公众号    ————</text>
+    <text class="content">{{wx}}</text>
+    <text>————    联系我们    —————</text>
+    <text class="content">{{contact}}</text>
   </view>
 </view>

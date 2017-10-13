@@ -1,0 +1,23 @@
+.header{
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+.header_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+.foot{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15%;
+  margin-left: 10%;
+  
+}
+.content{
+  padding: 10px;    
+}
