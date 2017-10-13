@@ -16,7 +16,7 @@
     "pages/index/index",
 
     "pages/register_s/register_s",
-    
+    "pages/person_msg/person_msg",
     "pages/login/login",
     "pages/logs/logs",
     "pages/table/table"
