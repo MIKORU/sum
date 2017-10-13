@@ -8,37 +8,46 @@ Page({
     boy:"/images/male.png",
     girl: "/images/female.png",
     className: "",
-    number: ""
+    number: "",
+    text1: "班级排名",
+    text2: "我的错题",
+    text3: "排行版",
+    text4: "我的作业",
+    text5: "做题历史",
+    text6:"个人信息",
+    text7:"关于我们",
+    text8:"联系我们"
   },
   register:(e)=>{
     wx.navigateTo({
       url: '/pages/register_guide/register_guide',
     })
   },
-  a: function () {
+  first: function () {
     wx.navigateTo({
       url: '/pages/do_time/do_time',
     })
   },
-  c: function () {
+  second: function () {
     wx.navigateTo({
-      url: '/pages/create_class/create_class',
+      url: '/pages/my_class/my_class',
     })
   },
-  b: function () {
-    wx.navigateTo({
-      url: '/pages/register_s/register_s',
-    })
+  person_msg: function () {
+    if(app.globalData.type == 1){
+      wx.navigateTo({
+        url: '/pages/person_msg/person_msg',
+      })
+    }
   },
-  d: function () {
+  about_us: function () {
     wx.navigateTo({
-      // url: '/pages/register_t/register_t',
       url: '/pages/about_us/about_us',
     })
   },
-  e: function () {
+  contact_us: function () {
     wx.navigateTo({
-      url: '/pages/table/table',
+      url: '/pages/contact_us/contact_us',
     })
   },
   onLoad: function (options) {
@@ -85,7 +94,23 @@ Page({
                     number: userInfo.number,
                     gender:userInfo.sex
                   })
+                  if(userInfo.type == 1){
+                    that.setData({
+                      text1: "学生成绩",
+                      text2: "布置作业",
+                      text4: "我的考试",
+                      text5: "我的班级"
+                    })
+                  }else{
+                    that.setData({
+                      text1: "班级排名",
+                      text2: "我的错题",
+                      text4: "我的作业",
+                      text5: "做题历史"
+                    })
+                  }
                   app.globalData.token = res.data.data.token
+                  app.globalData.type = res.data.data.type
                 }
               }
             })
