@@ -66,6 +66,7 @@ App({
     userInfo: null,
     canuse:0,//没有授权
     token:"",
-    host:"https://wokao666.club"
+    // host:"http://localhost:7000/"
+    host:"https://wokao666.club/"
   }
 })

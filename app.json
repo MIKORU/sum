@@ -6,14 +6,11 @@
     "pages/logined/logined",
     "pages/do_time/do_time",
     
-    
+    "pages/register_guide/register_guide",
     "pages/create_class/create_class",
     "pages/my_class/my_class",
     "pages/new_class/new_class",
     "pages/index/index",
-    
-   
-    "pages/register_t/register_t",
     "pages/register_s/register_s",
     
     "pages/login/login",
