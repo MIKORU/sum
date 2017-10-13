@@ -1,8 +1,9 @@
 {
   "pages":[
+    
     "pages/guide/guide",
     "pages/register_t/register_t",
-    
+    "pages/about_us/about_us",
     "pages/logined/logined",
     "pages/do_time/do_time",
     
@@ -11,6 +12,7 @@
     "pages/my_class/my_class",
     "pages/new_class/new_class",
     "pages/index/index",
+
     "pages/register_s/register_s",
     
     "pages/login/login",

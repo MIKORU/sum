@@ -6,11 +6,14 @@ Page({
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime: 60,
+    remainingTime:5,
     num1: 0,
     num2: 0,
+    gradeRange: ["一级", "二级", "三级", "四级", "五级", "六级", "七级", "八级"],
+    typeRange: ["5内加减法", "10内加法", "10内加减法", "20内加法", "20内加减法", "20内减法"],
     ans:[0,0,0,0],
-    cal: "+"
+    cal: "+",
+    flag: 1
   },
   /**
    * 求随机数 max为范围最大数（10，100，10000）
@@ -107,10 +110,16 @@ Page({
    * 计算得分
    */
   touchAns: function(event){
-    var index = event.currentTarget.dataset.alphaBeta;
-    if (this.data.num1 + this.data.num2 === this.data.ans[index]){
+    var index = parseInt(event.currentTarget.dataset.alphaBeta);
+    var ans1;
+    if(this.data.cal === "-"){
+      ans1 = this.data.num1 - this.data.num2;
+    }else{
+      ans1 = this.data.num1 + this.data.num2;
+    }
+    if (ans1 === this.data.ans[index]){
       this.setData({
-        score : this.data.score+1,
+        score: this.data.score + 1,
       })
     }
     this.init();
@@ -138,38 +147,56 @@ Page({
     }
   },
   /**
+   * 发送请求
+   */
+  saveSccore:function(datas){
+    console.log(datas);
+    wx.request({
+      url: "",//接口地址
+      data: datas,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        // wx.showToast({
+        //   title: '您的成绩已保存',
+        //   duration: 5000
+        // })
+      },
+      fail: function (res) {
+        console.log(res);
+        // wx.showToast({
+        //   title: '成绩保存失败',
+        //   duration: 5000
+        // })
+      }
+    });
+  },
+  /**
    * 简陋的倒计时
    */
   changeTime: function(){
     var time = this.data.remainingTime;
+    if(this.data.flag === 0){
+      return ;
+    }
     if(time === 0){
-      wx.request({
-        url:  "",//接口地址
-        data: {
+      var resu = this.result();
+      if (this.data.kind === 0 && resu === "过关") {
+        this.saveSccore({
           token: app.globalData.token,
+          type: this.data.gradeRange[this.data.value]});
+      } else if (this.data.kind === 1){
+        this.saveSccore({
+          token: app.globalData.token,
+          type: this.data.typeRange[this.data.value],
           score: this.data.score
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res)
-          // wx.showToast({
-          //   title: '您的成绩已保存',
-          //   duration: 5000
-          // })
-        },
-        fail: function(res){
-          console.log(res);
-          // wx.showToast({
-          //   title: '成绩保存失败',
-          //   duration: 5000
-          // })
-        }
-      });
+        });
+      }
       wx.showModal({
         title: '本次结果',
-        content: '时间已经截止 您本次的测试结果为：' + this.result(),
+        content: '时间已经截止 您本次的测试结果为：' + resu,
         showCancel:false,
         success: function (res) {
           if (res.confirm) {
@@ -194,13 +221,19 @@ Page({
       this.changeTime();
     },1000);
   },
+  shutdown:function(){
+    this.setData({
+      flag: 0,
+    });
+  },
   onLoad: function (options) {
+    console.log("onload");
     this.setData({
       kind:parseInt(options.kind),
       value:parseInt(options.value)
     })
-    this.init();
-    this.changeTime();
+    // this.init();
+    // this.changeTime();
     // Do some initialize when page load.
   },
   onReady: function () {
@@ -208,13 +241,40 @@ Page({
   },
   onShow: function () {
     // Do something when page show.
+    console.log("show");
+    
+    this.init();
+    this.changeTime();
     console.log(app.globalData.token)
   },
   onHide: function () {
     // Do something when page hide.
+    console.log("hide");
   },
   onUnload: function () {
     // Do something when page close.
+    // wx.showModal({
+    //   title: '提醒',
+    //   content: '本次答题还未结束，您确定要退出吗？',
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //       if (this.data.remainingTime > 0) {
+    //         console.log(this.data.remainingTime);
+    //         this.shutdown();
+    //       }
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //       this.onLoad();
+    //     }
+    //   }
+    // })
+
+    if (this.data.remainingTime > 0){
+      console.log(this.data.remainingTime);
+      this.shutdown();
+    }
+    console.log("unload");
   },
   onPullDownRefresh: function () {
     // Do something when pull down.
