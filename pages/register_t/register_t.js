@@ -1,28 +1,18 @@
-const app = getApp()    
 Page({
   data: {
-    //各种index
-    gender_index: 0,
-    age_index: 0,
-    //各种数组
+    index: 0,
     gender: [
       "男", "女"
     ],
     age: [
-      18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60
+      5, 6, 7, 8, 9, 10, 11, 12
     ],
-    teacher: {
-      number: 0,
-      name: "",
-      gender: 1,
-      age: 18,
-      schoolName: ""
-    }
+    school: ["广东财经大学"]
   },
-  gender_Change: function (e) {
-    //设置下标
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      gender_index: e.detail.value
+      index: e.detail.value
     })
     //设置返回后台的student对象
     this.data.teacher.gender = parseInt(e.detail.value)
