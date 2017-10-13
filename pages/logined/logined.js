@@ -32,7 +32,8 @@ Page({
   },
   d: function () {
     wx.navigateTo({
-      url: '/pages/register_t/register_t',
+      // url: '/pages/register_t/register_t',
+      url: '/pages/about_us/about_us',
     })
   },
   e: function () {

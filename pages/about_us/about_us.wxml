@@ -1,0 +1,16 @@
+<view class="about">
+  <view class="header">
+      <view class="header_circle">
+        <image src="{{header_image}}" class="header_image"></image>
+      </view>
+  </view>
+  <view class="foot">
+    <text>—————    版本号    —————</text>
+    <text>{{version}}</text>
+    <text>—————    微信公众号    —————</text>
+    <text>{{wx}}</text>
+    <text>—————    联系我们    —————</text>
+    <text>{{contact}}</text>
+    <text>—————    tx    —————</text>
+  </view>
+</view>
