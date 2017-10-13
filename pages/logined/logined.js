@@ -34,11 +34,9 @@ Page({
     })
   },
   person_msg: function () {
-    if(app.globalData.type == 1){
       wx.navigateTo({
         url: '/pages/person_msg/person_msg',
       })
-    }
   },
   about_us: function () {
     wx.navigateTo({
@@ -111,6 +109,7 @@ Page({
                   }
                   app.globalData.token = res.data.data.token
                   app.globalData.type = res.data.data.type
+                  app.globalData.logined = 1
                 }
               }
             })

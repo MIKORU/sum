@@ -151,28 +151,42 @@ Page({
    */
   saveSccore:function(datas){
     console.log(datas);
-    wx.request({
-      url: "",//接口地址
-      data: datas,
-      header: {
-        'content-type': 'application/json'
-      },
-      method:"POST",
-      success: function (res) {
-        console.log(res)
-        // wx.showToast({
-        //   title: '您的成绩已保存',
-        //   duration: 5000
-        // })
-      },
-      fail: function (res) {
-        console.log(res);
-        // wx.showToast({
-        //   title: '成绩保存失败',
-        //   duration: 5000
-        // })
-      }
-    });
+   if(app.globalData.logined == 1){
+     console.log("ss")
+     wx.request({
+       url: app.globalData.host + "wxapp/test/saveRecord.do",//接口地址
+       data: {
+         kind: datas.kind,
+         type: datas.type+1,
+         token: datas.token,
+         score: datas.score
+       },
+       header: {
+         'content-type': 'application/x-www-form-urlencoded'
+       },
+       method: "POST",
+       dataType: "json",
+       success: function (res) {
+         console.log(res.data)
+         // wx.showToast({
+         //   title: '您的成绩已保存',
+         //   duration: 5000
+         // })
+       },
+       fail: function (res) {
+         console.log(a)
+         console.log(datas.type)
+         // wx.showToast({
+         //   title: '成绩保存失败',
+         //   duration: 5000
+         // })
+       }
+     });
+   }else{
+     wx.showToast({
+       title: '未登录',
+     })
+   }
   },
   /**
    * 简陋的倒计时
@@ -188,12 +202,12 @@ Page({
         this.saveSccore({
           token: app.globalData.token,
           kind:this.data.kind,
-          type: this.data.gradeRange[this.data.value]});
+          type: this.data.value});
       } else if (this.data.kind === 1){
         this.saveSccore({
           token: app.globalData.token,
           kind: this.data.kind,
-          type: this.data.typeRange[this.data.value],
+          type: this.data.value,
           score: this.data.score
         });
       }
