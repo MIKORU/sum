@@ -1,0 +1,8 @@
+<view>
+    <view class="teacher">
+        <button type='primary' bindtap='register_t'>教师注册</button>
+    </view>
+    <view class='student'>
+        <button type="primary" bindtap='register_s'>学生注册</button>
+    </view>
+</view>

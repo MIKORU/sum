@@ -1,0 +1,12 @@
+.teacher{
+ display: flex;
+ height: 200px;
+ justify-content: center;
+ align-items: center;
+}
+.student{
+ display: flex;
+ height: 200px;
+ justify-content: center;
+ align-items: center;
+}
