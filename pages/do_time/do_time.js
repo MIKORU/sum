@@ -224,9 +224,22 @@ Page({
   },
   onUnload: function () {
     // Do something when page close.
-    this.setData({
-      remainingTime: -1,
-    });
+    wx.showModal({
+      title: '提醒',
+      content: '本次答题还未结束，您确定要退出吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          this.setData({
+            remainingTime: -1,
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+    
     console.log("unload");
   },
   onPullDownRefresh: function () {

@@ -6,13 +6,16 @@
     "pages/logined/logined",
     "pages/do_time/do_time",
     
-    
+    "pages/register_guide/register_guide",
     "pages/create_class/create_class",
     "pages/my_class/my_class",
     "pages/new_class/new_class",
     "pages/index/index",
+<<<<<<< HEAD
     
    
+=======
+>>>>>>> e311efaf206efa43cc3af97fc03765dfc4514ade
     "pages/register_s/register_s",
     
     "pages/login/login",
