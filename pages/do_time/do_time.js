@@ -6,7 +6,7 @@ Page({
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime: 60,
+    remainingTime:5,
     num1: 0,
     num2: 0,
     ans:[0,0,0,0],
@@ -142,6 +142,9 @@ Page({
    */
   changeTime: function(){
     var time = this.data.remainingTime;
+    if(time < 0){
+      return ;
+    }
     if(time === 0){
       wx.request({
         url:  "",//接口地址
@@ -195,12 +198,13 @@ Page({
     },1000);
   },
   onLoad: function (options) {
+    // console.log(onload);
     this.setData({
       kind:parseInt(options.kind),
       value:parseInt(options.value)
     })
-    this.init();
-    this.changeTime();
+    // this.init();
+    // this.changeTime();
     // Do some initialize when page load.
   },
   onReady: function () {
@@ -208,13 +212,22 @@ Page({
   },
   onShow: function () {
     // Do something when page show.
+    console.log("show");
+    
+    this.init();
+    this.changeTime();
     console.log(app.globalData.token)
   },
   onHide: function () {
     // Do something when page hide.
+    console.log("hide");
   },
   onUnload: function () {
     // Do something when page close.
+    this.setData({
+      remainingTime: -1,
+    });
+    console.log("unload");
   },
   onPullDownRefresh: function () {
     // Do something when pull down.
