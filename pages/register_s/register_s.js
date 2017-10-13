@@ -56,7 +56,7 @@ Page({
     //设置返回后台的student对象
     this.data.student.sid = this.data.sidList[e.detail.value]
     wx.request({
-      url: 'http://localhost:7000/wxapp/login/listAllClassBySid.do',
+      url: app.globalData.host +'/wxapp/login/listAllClassBySid.do',
       data: {
         sid: that.data.sidList[e.detail.value]
       },
@@ -100,7 +100,7 @@ Page({
       success: function (res) {
       var code = res.code
           wx.request({
-            url: 'http://localhost:7000/wxapp/user/register.do',
+            url: app.globalData.host +'/wxapp/user/register.do',
             data: {
               number: that.data.student.number,
               name: that.data.student.name,
@@ -125,8 +125,9 @@ Page({
             success: function (res) {
               console.log(res.data.code)
               if(res.data.code==1){
-                wx.redirectTo({
-                  url: '/pages/guide/guide',
+                app.globalData.token = res.data.data
+                wx.switchTab({
+                  url: '/pages/logined/logined',
                 })
               }
             }
@@ -145,7 +146,7 @@ Page({
     var that = this
     // \获取所有的学校列表
     wx.request({
-      url: 'http://localhost:7000/wxapp/login/listAllSchool.do',
+      url: app.globalData.host +'/wxapp/login/listAllSchool.do',
       data: {},
       header: {
         'content-type': 'application/x-www-form-urlencoded' //post请求

@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/guide/guide",
+    "pages/register_t/register_t",
+    
     "pages/logined/logined",
     "pages/do_time/do_time",
     
