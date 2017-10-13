@@ -61,7 +61,7 @@ Page({
           if (res.code) {
             //发起网络请求，向自己的服务器获取session
             wx.request({
-              url: 'http://localhost:7000/wxapp/login/checkLogined.do',
+              url: app.globalData.host + '/wxapp/login/checkLogined.do',
               data: {
                 code: res.code,
               },
@@ -83,6 +83,7 @@ Page({
                     className: userInfo.className,
                     number: userInfo.number
                   })
+                  app.globalData.token = res.data.data.token
                 }
               }
             })

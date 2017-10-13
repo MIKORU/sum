@@ -208,6 +208,7 @@ Page({
   },
   onShow: function () {
     // Do something when page show.
+    console.log(app.globalData.token)
   },
   onHide: function () {
     // Do something when page hide.

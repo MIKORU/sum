@@ -65,6 +65,7 @@ App({
   globalData: {
     userInfo: null,
     canuse:0,//没有授权
-    token:""
+    token:"",
+    host:"https://wokao666.club"
   }
 })
