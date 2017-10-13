@@ -42,7 +42,7 @@
   align-items: center;
   border: 1px solid #ddd;
   height: 30px;
-  width: 100px;
+  width: 110px;
 }
 
 .type{
@@ -52,7 +52,7 @@
   flex-direction: column;
   font-size: 16px;
   margin-top:10px;
-  height: 60px;
+
 }
 
 .font_t{
@@ -64,4 +64,16 @@
   display:inline-block;
   margin-left:10px;
 
+}
+.search{
+height: 34px;
+width: 139px;
+display: flex;
+margin: 0 auto;
+margin-bottom: 20px;
+justify-content: center;
+align-items: center;
+border: 1px solid #bbbbbb;
+border-radius: 25px;
+margin-top:10px;
 }
