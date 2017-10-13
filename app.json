@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/guide/guide",
     "pages/about_us/about_us",
 
-    "pages/guide/guide",
+    
     "pages/register_t/register_t",
     
     "pages/logined/logined",
