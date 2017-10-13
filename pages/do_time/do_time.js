@@ -6,7 +6,7 @@ Page({
     index: 0,
     gender: ["nan", "nv"],
     score: 0,
-    remainingTime:10,
+    remainingTime:60,
     num1: 0,
     num2: 0,
     gradeRange: ["一级", "二级", "三级", "四级", "五级", "六级", "七级", "八级"],
@@ -151,7 +151,6 @@ Page({
    */
   saveSccore:function(datas){
     console.log(datas);
-    console.log(app.globalData.logined)
    if(app.globalData.logined == 1){
      console.log("ss")
      wx.request({
@@ -246,9 +245,14 @@ Page({
   },
   onLoad: function (options) {
     console.log("onload");
+    if(options.kind === "1"){
+      this.setData({
+        remainingTime:180
+      })
+    }
     this.setData({
       kind:parseInt(options.kind),
-      value:parseInt(options.value)
+      value:parseInt(options.value),
     })
     // this.init();
     // this.changeTime();
