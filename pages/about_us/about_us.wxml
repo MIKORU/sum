@@ -5,11 +5,11 @@
       </view>
   </view>
   <view class="foot">
-    <text>—————    版本号    —————</text>
-    <text class="content">{{version}}</text>
-    <text>————    微信公众号    ————</text>
-    <text class="content">{{wx}}</text>
-    <text>————    联系我们    —————</text>
-    <text class="content">{{contact}}</text>
+    <text class="content">—————    版本号    —————</text>
+    <view><image src="{{image_version}}" class="imgs" /><text class="content">{{version}}</text></view>
+    <text class="content">————    微信公众号    ————</text>
+    <view><image src="{{image_wx}}" class="imgs" /><text class="content">{{wx}}</text></view>
+    <text class="content">————    联系我们    —————</text>
+     <view><image src="{{image_contact}}" class="imgs" /><text class="content">{{contact}}</text></view>
   </view>
 </view>

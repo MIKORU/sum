@@ -187,10 +187,12 @@ Page({
       if (this.data.kind === 0 && resu === "过关") {
         this.saveSccore({
           token: app.globalData.token,
+          kind:this.data.kind,
           type: this.data.gradeRange[this.data.value]});
       } else if (this.data.kind === 1){
         this.saveSccore({
           token: app.globalData.token,
+          kind: this.data.kind,
           type: this.data.typeRange[this.data.value],
           score: this.data.score
         });
