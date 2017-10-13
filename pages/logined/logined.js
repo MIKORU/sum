@@ -81,7 +81,8 @@ Page({
                     header_image: userInfo.image ,
                     name: userInfo.name,
                     className: userInfo.className,
-                    number: userInfo.number
+                    number: userInfo.number,
+                    gender:userInfo.sex
                   })
                   app.globalData.token = res.data.data.token
                 }

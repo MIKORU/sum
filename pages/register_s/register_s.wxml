@@ -6,7 +6,7 @@
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
     <text style="width:90px">学号 ： </text>
-    <input class="input_1"  bindinput='bindNumberInput' auto-focus/>
+    <input class="input_1"  type='number' bindinput='bindNumberInput' auto-focus/>
   </view>
   <view class="body">
     <image class="image_1" src="/images/home.png"></image>
