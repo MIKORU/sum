@@ -42,7 +42,7 @@
    padding-left: 10px; 
   border-radius: 10px;
   align-items: center;
-   margin-left: 17%; 
+   margin-left: 10%; 
 border: 1px solid #ddd;
   height: 30px;
   width: 75%;

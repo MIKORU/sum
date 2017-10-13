@@ -42,7 +42,7 @@ Page({
       value = this.data.typeValue;
     }
     wx.navigateTo({
-      url:'../do_time/do_time?kind='+kind+'&&value='+value,
+      url:'/pages/do_time/do_time?kind='+kind+'&&value='+value,
     })
   },
   onLoad: function (options) {
