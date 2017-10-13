@@ -24,19 +24,19 @@
       <view class="class_p_circle">
         <image class="class_p_circle_image" src="/images/love.png"></image>
       </view>
-      <text>班级排名</text>
+      <text>{{text1}}</text>
     </view>
     <view class="my_error">
       <view class="my_error_circle">
         <image class="my_error_circle_image" src='/images/error.png'></image>
       </view>
-      <text>我的错题</text>
+      <text>{{text2}}</text>
     </view>
     <view class="pai_hang">
       <view class="pai_hang_circle">
         <image class="pai_hang_circle_image" src='/images/p1.png'></image>
       </view>
-      <text>排行版</text>
+      <text>{{text3}}</text>
     </view>
 
 
@@ -46,36 +46,36 @@
   </view>
 
   <view class="body_2">
-    <view class="my_homework" bindtap='a'>
+    <view class="my_homework" bindtap='first'>
       <view class='my_homework_image'>
         <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
       </view>
       <view class="my_homework_image_item">
         <view class="text_">
-          <text>我的作业</text>
+          <text>{{text4}}</text>
           <text style="margin-right:15px;">></text>
         </view>
       </view>
     </view>
-    <view class="do_history" bindtap='b'>
+    <view class="do_history" bindtap='second'>
       <view class="do_history_image">
         <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
       </view>
       <view class="do_history_image_item">
         <view class="text_">
-          <text>做题历史</text>
+          <text>{{text5}}</text>
           <text style="margin-right:15px;">></text>
         </view>
       </view>
 
     </view>
-    <view class="myself" bindtap='c'>
+    <view class="myself" bindtap='person_msg'>
       <view class="myself_image">
         <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
       </view>
       <view class="myself_image_item">
         <view class="text_">
-          <text>个人信息</text>
+          <text>{{text6}}</text>
           <text style="margin-right:15px;">></text>
         </view>
       </view>
@@ -84,24 +84,24 @@
   <view class="white_space">
   </view>
   <view class="body_3">
-    <view class="about_us" bindtap='d'>
+    <view class="about_us" bindtap='about_us'>
       <view class="about_us_image">
         <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
       </view>
       <view class="about_us_image_item">
         <view class="text_">
-          <text>关于我们</text>
+          <text>{{text7}}</text>
           <text style="margin-right:15px;">></text>
         </view>
       </view>
     </view>
-    <view class="contact_us" bindtap='e'>
+    <view class="contact_us" bindtap='contact_us'>
       <view class="contact_us_image">
         <image style='width:25px;height:25px;' src='/images/ceshi.png'></image>
       </view>
       <view class="contact_us_image_item">
         <view class="text_">
-          <text>联系我们</text>
+          <text>{{text8}}</text>
           <text style="margin-right:15px;">></text>
         </view>
       </view>

@@ -66,7 +66,8 @@ App({
     userInfo: null,
     canuse:0,//没有授权
     token:"",
-    // host:"http://localhost:7000/"
-    host:"https://wokao666.club/"
+    // host:"http://localhost:7000/",//域名配置
+    host:"https://wokao666.club/",
+    type:0//用户类型，学生2，老师1
   }
 })

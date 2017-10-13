@@ -75,7 +75,8 @@ Page({
             language: app.globalData.userInfo.language,
             province: app.globalData.userInfo.province,
             code: code,
-            type: 1
+            type: 1,
+            schoolName: that.data.teacher.age
           },
           header: {
             'content-type': 'application/x-www-form-urlencoded' //post请求
