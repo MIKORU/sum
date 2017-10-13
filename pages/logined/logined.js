@@ -37,7 +37,7 @@ Page({
   },
   e: function () {
     wx.navigateTo({
-      url: '/pages/my_class/my_class',
+      url: '/pages/table/table',
     })
   },
   onLoad: function (options) {
